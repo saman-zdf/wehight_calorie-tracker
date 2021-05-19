@@ -1,49 +1,57 @@
-# # require_relative "calorie_recorder.rb"
+require_relative "calorie_recorder.rb"
+require_relative "BMI_calculator.rb"
 
-# class User 
-  
-#   def welcome
-#     puts "Welcome to calorie recorder app"
-#     puts "please enter your name: "
-#     greet(user_inputs)
-#   end
 
-#   def user_inputs
-#     gets.chomp.downcase
-#   end
+loop do 
+  puts "please Enter you name: "
+  name = gets.chomp
+  user = Calorierecorder.new(name)
+  user.welcome
+  input = gets.chomp
+  break if input != "y"
+  option = true
+  while option == true && input == "y"
+    user.option 
+    user_input = gets.chomp.downcase
+    if user_input == "calorie" && option == true
+      puts "Please enter the type of food: "
+      food = gets.chomp
+      puts "Please enter the amount of calories: "
+      calorie = gets.chomp
+      puts "Please enter the time of day:"
+      time = gets.chomp
+      user.get_calorie(food, calorie, time)
+      user.display
+      option == true
+    elsif user_input == "bmi" && option == true
+      puts "Please enter your weight: (kg)"
+      weight = gets.chomp.to_f 
+      puts "Please enter your height:(m),like(1.75)"
+      height = gets.chomp.to_f
+      bmi = Bmi.new(weight, height)
+      bmi.display
+      option = true
+    elsif user_input == "history" && option == true
+      user.history
+      option = true
+    else 
+      puts "invalid credentials please try again"
+      option = true
+    end
+    while option == true
+      puts "Would you like to see the options agin?(Y/N)".colorize(:green)
+      answer = gets.chomp
+      if answer == "y"
+        option = true
+        break
+      else answer != "y"
+        puts "thank you for using our app #{user.name}, good luck!".colorize(:pink)
+        option = false
+      end
+    end
+  end
+  break
+end
 
-#   def greet(name)
-#     puts "Fantastic #{name}, would you like to recorde calorie intake or chsck your BMI(body mass index)?(calorie/bmi)"
-#     user_selection
-#   end
-#   # ragarding the user choice, either let user input the calorie intake or calculate BMI
-#   # if user input is not part of our demand, give an error message
-#   def user_selection
-#     user_selection = user_inputs
-#     if user_selection == 'calorie'
-#       # let user to input the calorie intake, type of food and time of day
-#       # give an option to choose again
-#       # give an option to exit
-#       puts "calorie choice"
-#     elsif user_selection == "bmi"
-#       # let user to input weight and height to calculate the BMI
-#       # give an option to choose again
-#       # give an option to exit
-#        puts "BMI choice"
-#     elsif user_selection == "check"
-#       # show the history of calorie intake
-#       # give an option to choose again
-#       # give an option to exit
-#        puts "check choice"
-#     else
-#       #.invalid credential tru again
-#       puts "wrong choice"
-#     end
-#   end
 
-# end
-# # user = User.new
-# # user.welcome
-# # user.user_inputs
-# # name = user.user_inputs
 
