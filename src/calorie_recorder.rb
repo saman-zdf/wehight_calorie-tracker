@@ -1,4 +1,5 @@
 require 'colorize'
+require 'tty-prompt'
 class Calorierecorder 
   attr_reader :name
   def initialize(name)
@@ -7,7 +8,7 @@ class Calorierecorder
   end
 
   def welcome 
-    puts "Welcome #{@name} to my calorie recorder app".colorize(:blue)
+    puts "Welcome to my calorie recorder app"
     puts "In this app you will be able to recorde your daily food intake with calorie and time of the day.".colorize(:blue)
     puts "Please just follow the instruction and you will be able to use this app easily.".colorize(:blue)
     puts "would you like to continue?(Y/N)".colorize(:blue)
@@ -21,12 +22,12 @@ class Calorierecorder
   end
 
 
-  def get_calorie(type, nmuber_of_cal, time_of_day)
+  def get_data(type, nmuber_of_cal, time_of_day)
     total = {food: type, calorie: nmuber_of_cal, time: time_of_day}
     @record << total
   end
   
-  def display
+  def display_data
       @record.each do |item|
         puts "Meal -> #{item[:food]}, #{item[:calorie]} -> calories, Time -> #{item[:time]}"
       end
