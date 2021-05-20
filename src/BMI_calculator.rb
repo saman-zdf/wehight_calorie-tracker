@@ -13,7 +13,7 @@ class Bmi
     @total_bmi = @weight / (height * height)
     # puts @total_bmi
   end
-  
+  # in this method will display the user's BMI, using conditional statments, if user's BMI in a normal range it shows He/She has a healthy weigh, if not in a normal range, it will alert the user that he either underweight or overweight, and gives some tip to how to lose or gaing weight.
   def display
     if get_bmi(@total_bmi).round(1) >= 18.4 && get_bmi(@total_bmi).round(1) <= 24.9
       puts "Good news, your BMI is #{get_bmi(@total_bmi).round(1)}, you have healthy weight.".colorize(:green)

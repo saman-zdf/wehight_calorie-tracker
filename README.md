@@ -42,3 +42,19 @@
 3.
 
 ---
+
+# R8: A diagram to describe the control flow of application
+
+![diagram](./docs/calorie_app_flowchart-Page-1.jpg)
+
+---
+
+# R9: project mangement using trello
+
+I used trello to set a plan of what I want to do, set goals, create a user story and checked if my feature meet the expectation of user. made a to list, list of features, testing, process, complete, and sat time to do each feature
+
+1. DAY 1
+   ![Project management](./docs/1_trello.png)
+2. DAY 2
+   ![Project management](./docs/2_trello.png)
+   ![Project management](./docs/3_trello.png)
