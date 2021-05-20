@@ -1,6 +1,3 @@
-require_relative "../calorie_recorder"
-require_relative "../BMI_calculator"
-require_relative "../user_interface"
 
 
 # test for Calorierecorder class

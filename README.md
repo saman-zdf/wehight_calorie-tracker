@@ -25,3 +25,20 @@
      1. user can record their calorie intake and it will display how many calories for a day they had
      2. Users can check to see their BMI, and if it is in a healthy range it will tell them, otherwise, users will get informed if they are under or overweight and give the user some suggestions to gain or lose the weight.
      3. the user will have an option to see his/her previos records.
+     ***
+
+# R7: Develop an outline of the user interaction and experience for the application.
+
+---
+
+- how errors will be handled by the application and displayed to the use
+
+- For using this application there are set of instruction that user has to follow.
+
+1. At first the application will prompt the user welcome message and it will ask the user for He/Her name, after user input name, the application will greet the user and will ask the user if the user wants to use on of the three options that application provide.
+
+2. The user can interact by choosing on of the following option(calorie, BMI, History). if user choose calorie it will ask the user to put the type of food, estimated calorie, time of the day, once the user input the these request it will be recorded in display the user the information. if user choose to calculate BMI(body mass index), it will ask the user to input weight and height and it will display the BMI of user, if user's BMI in the range of normal it will dispaly user have a healthy range, if BMI is not in a normal range it will let the user know He either is overweight or underweight, if user choose to see the history, it will show the history of calorie intake.
+
+3.
+
+---
