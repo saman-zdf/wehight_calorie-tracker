@@ -39,7 +39,7 @@ class Calorierecorder
       @record.each_with_index do |item, index|
         puts "#{index += 1}. Meal: #{item[:food]}, #{item[:calorie]} Calories, #{item[:time]} "
       end
-      puts "You have been your meal intakes #{@record.length} times!".colorize(:green)
+      puts "your meal intake are #{@record.length} times!".colorize(:green)
     end
   end
 end
