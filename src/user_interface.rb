@@ -1,7 +1,8 @@
 require 'colorize'
 require 'tty-prompt'
-require_relative "BMI_calculator.rb"
+require_relative "bmi.rb"
 require_relative "calorie_recorder.rb"
+# require "test.yml"
 prompt = TTY::Prompt.new
 
 
@@ -22,6 +23,17 @@ loop do
   if question == "Sign-up"
     system("clear")
   elsif question == "Exit"
+    puts ""
+    puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
+$$  __$$\\$$\   $$  |$$  _____|
+$$ |  $$ |\$$\ $$  / $$ |      
+$$$$$$$\ | \$$$$  /  $$$$$\    
+$$  __$$\   \$$  /   $$  __|   
+$$ |  $$ |   $$ |    $$ |      
+$$$$$$$  |   $$ |    $$$$$$$$\ 
+\_______/    \__|    \________|
+
+".colorize(:light_magenta)
     puts "Thanks for visiting us, good luck!".colorize(:cyan)
     break
   end
@@ -67,6 +79,7 @@ loop do
       userpass = prompt.mask("Password: ")
     if username == username1 && userpass == password
       continue_3 = false
+      system('clear')
       break
     else
       puts "Wrong credentials, please try agin"
@@ -117,7 +130,18 @@ loop do
         option_2 = false
         system("clear")
       else answer == "No"
-        puts "Thank you using this app, please visit us again".colorize(:pink)
+        puts "Thank you using this app, please visit us again".colorize(:light_magenta)
+        puts ''
+        puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
+$$  __$$\\$$\   $$  |$$  _____|
+$$ |  $$ |\$$\ $$  / $$ |      
+$$$$$$$\ | \$$$$  /  $$$$$\    
+$$  __$$\   \$$  /   $$  __|   
+$$ |  $$ |   $$ |    $$ |      
+$$$$$$$  |   $$ |    $$$$$$$$\ 
+\_______/    \__|    \________|
+
+".colorize(:yellow)      
         exit
       end
   end
