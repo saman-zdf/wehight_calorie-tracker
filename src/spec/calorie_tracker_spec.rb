@@ -1,6 +1,6 @@
 require_relative "../calorie_recorder"
-# require_relative "../BMI_calculator"
-require_relative "../user_interface"
+require_relative "../bmi"
+# require_relative "../user_interface"
 
 # test for Calorierecorder class
 describe Calorierecorder do 
@@ -41,6 +41,30 @@ describe Calorierecorder do
 end
 
 
+# tests for BMI class
+describe Bmi do 
+  weight = 80
+  height = 1.82
+  bmi = Bmi.new(weight, height)
+  # this test should have a redable weight 
+  it "should have a readable weight" do
+  expect(bmi.weight).to eq(80)
+  end
+  # this test should have a readable height
+  it "should have a readable height" do
+
+  expect(bmi.height).to eq(1.82)
+  end
+  # this test is for calculating the BMI
+  it "should calculate the bmi" do 
+    total_bmi = weight / (height * height)
+    expect(bmi.get_bmi(total_bmi)).to eq(total_bmi)
+  end 
+  # this test is for displaying the bmi
+  it "should display the bmi to the user" do
+    expect(bmi.display).to eq(display)
+  end
+end
 
 
 

@@ -1,5 +1,9 @@
 # Welcome to my Calorie recorder App.
 
+### link below is for my github repository
+
+[Github repository](https://github.com/saman-zdf/weight_calorie-tracker)
+
 ### Description
 
 1. In this app the user can track the daily calorie intakes, the user can check their BMI(Body Mass Index), and if they are under or overweight the app will show how much the user needs to lose or gain weight to have a Proper BMI.
@@ -58,3 +62,12 @@ I used trello to set a plan of what I want to do, set goals, create a user story
 2. DAY 2
    ![Project management](./docs/2_trello.png)
    ![Project management](./docs/3_trello.png)
+
+   ***
+
+   ### Testin record
+
+   1. I tested ever class and methods inside of the class and recorder in the spreadsheets:
+      ![Test records](docs/test-1.png)
+      ![Test records](docs/test-2.png)
+      ![Test records](docs/test-3.png)
