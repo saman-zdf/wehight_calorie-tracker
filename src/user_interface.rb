@@ -3,6 +3,7 @@ require 'tty-prompt'
 require_relative "bmi.rb"
 require_relative "calorie_recorder.rb"
 # require "test.yml"
+require 'terminal-table'
 prompt = TTY::Prompt.new
 
 
@@ -19,24 +20,15 @@ loop do
 
 ".colorize(:light_magenta)
   # this code will ask if user wants to sign-up or exit
+  user = Calorierecorder.new("saman")
   question = prompt.select("Would like to Sign-Up or Exit", %w(Sign-up Exit))
   if question == "Sign-up"
     system("clear")
   elsif question == "Exit"
-    puts ""
-    puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
-$$  __$$\\$$\   $$  |$$  _____|
-$$ |  $$ |\$$\ $$  / $$ |      
-$$$$$$$\ | \$$$$  /  $$$$$\    
-$$  __$$\   \$$  /   $$  __|   
-$$ |  $$ |   $$ |    $$ |      
-$$$$$$$  |   $$ |    $$$$$$$$\ 
-\_______/    \__|    \________|
-
-".colorize(:light_magenta)
-    puts "Thanks for visiting us, good luck!".colorize(:cyan)
+    user.display_bye
     break
   end
+
   continue = true
   # this while loop is for creating username and password,
   # when user create the username user get promp if user sure to choose a right username, if yse continue, if no user can type new username
@@ -52,6 +44,7 @@ $$$$$$$  |   $$ |    $$$$$$$$\
       continue = true
     end
   end
+
   continue_2 = true
   # this while is for user to create a password and to retype the password, if user retype the wrong password, user will get prompt "Wrong combination, try to create a password again" 
   while continue_2
@@ -67,10 +60,12 @@ $$$$$$$  |   $$ |    $$$$$$$$\
         continue_2 = true
     end
   end
-  # in this create a new object form Calorierecoder 
-  # and display a welcome meesage to thye user
+
+  # in this test create a new object form Calorierecoder 
   user = Calorierecorder.new(username1)
+  # display a welcome meesage to the user
   user.welcome
+
   # in this while loop ask the user to log in by putting username and password
     continue_3 = true
   while continue_3 == true  
@@ -86,12 +81,14 @@ $$$$$$$  |   $$ |    $$$$$$$$\
       continue_3 = true
     end
   end
+
   # in this while loop we will display ask the user what kind option there are to choose
   option = true
   while option == true
     user.option
     display_option = prompt.select("You can choose one of the following options", %w(RecordCalorie BMI History Exit))
     system("clear ")
+
     # if the user chooses to record the calorie intake, it will ask to input the typr meal, number of calorie and time of the day
     if display_option == "RecordCalorie" && option == true
       puts "Please enter the type of the food: ".colorize(:yellow)
@@ -104,24 +101,29 @@ $$$$$$$  |   $$ |    $$$$$$$$\
       system("clear")
       user.display_data
       option = true
+
       # if the user chooses to check the BMI, it will ask go weight and for the height and return the bmi 
     elsif display_option == "BMI" && option == true
       puts "Please enter your weight(kg)".colorize(:green)
       weight = gets.chomp.to_f
       puts "Please enter your height(m), like(1.82)".colorize(:green)
       height = gets.chomp.to_f
-      bmi = Bmi.new(weight, height)
+      bmi = Bmi.new
+      bmi.get_bmi(weight, height)
       system("clear")
       bmi.display
       option = true
+
       # if the user chooses to see the history it will disply the history of meal and calorie reords and total of calorie intake
     elsif display_option == "History" && option == true
       user.history
       option = true
     elsif display_option == "Exit" && option == true
+      user.display_bye
       option = false
       exit
     end
+
     # in this while loop it will ask the user if he wants to check options again, if no it will exit the loops
     option_2 = true
     while option_2 == true
@@ -130,18 +132,7 @@ $$$$$$$  |   $$ |    $$$$$$$$\
         option_2 = false
         system("clear")
       else answer == "No"
-        puts "Thank you using this app, please visit us again".colorize(:light_magenta)
-        puts ''
-        puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
-$$  __$$\\$$\   $$  |$$  _____|
-$$ |  $$ |\$$\ $$  / $$ |      
-$$$$$$$\ | \$$$$  /  $$$$$\    
-$$  __$$\   \$$  /   $$  __|   
-$$ |  $$ |   $$ |    $$ |      
-$$$$$$$  |   $$ |    $$$$$$$$\ 
-\_______/    \__|    \________|
-
-".colorize(:yellow)      
+      user.display_bye     
         exit
       end
   end

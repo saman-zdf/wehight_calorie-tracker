@@ -31,6 +31,23 @@
      3. the user will have an option to see his/her previos records.
      ***
 
+# R6: Develop a list of features that will be included in the application. It must include:
+
+- at least THREE features
+- describe each feature
+
+Note: Ensure that your features above allow you to demonstrate your understanding of the following language elements and concepts:
+
+- use of variables and the concept of variable scope
+- loops and conditional control structures
+- error handling
+
+1. In this feature user can create an account to sign-up to the app, I used tty-prompt and used ask and mask built-in method to let the user create an account, when user create a username it will as the user if the user is sure to continue by the current username otherwise he can create another username, I used while loop and conditional statement for this feature. if the user's answer is yes it will move to the next while loop to create a password and the user has to retype the password if it doesn't match it will prompt the user the combination is wrong the user has to create the password again. I used conditional statements to make sure the user retype the right password.
+
+2. in this feature user can input the data like type of food, number of calories and time of the day, and it will be displayed to the user. .I have created a class call Calorierecorder, this class has initialize method with one argument for name and two instance variables one for name and one for the record, assign the record variable to an empty array to append data from the user inside this array. there is a method call welcome to display the welcome message to the user. there is a method call option that will display the option menu to the user. there is a method call get_data which gets the data from the user to store them inside the record variable array, like the type of the food, number of calories, and time of the day and the user input will get appended to the empty record array as a hash. there is a display_data method and I iterated through the record array to get the value of hash and display it to the user. there is a method call history and I iterated through the array of hash to get value and display it to the user, and with map key word I get the sum of calories value to show to the user how many calories in total the user had.
+
+3. In this feature user can by input weight and height calculate His/Her BMI, I created a class call Bmi and the initialize method has to arguments one for weight and one for height, there is a method call get_bmi which can calculate the BMI of the user by dividing the weight to the exponent of height. there is a method call display that will display the BNI to the user, I used conditional statements if the user's BMI in a normal range it will display a message that the user has a healthy weight, if it is not it will let the user know that BMI is not in a normal range.
+
 # R7: Develop an outline of the user interaction and experience for the application.
 
 ---
