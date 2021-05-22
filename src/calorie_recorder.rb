@@ -11,8 +11,6 @@ class Calorierecorder < Terminal::Table
     @record = []
   end
 
-
-
   # create welcome method to welcome the to this app user
   def welcome 
     puts "Welcome to my calorie recorder app"
@@ -63,26 +61,5 @@ class Calorierecorder < Terminal::Table
       puts "you have had #{@record.length} meals, and  #{sum_calorie} calories in total.".colorize(:green)
     end
   end
-
-
-  def display_bye
-    puts "Thank you for visiting us, please caome back again".colorize(:light_magenta)
-      puts ""
-        puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
-$$  __$$\\$$\   $$  |$$  _____|
-$$ |  $$ |\$$\ $$  / $$ |      
-$$$$$$$\ | \$$$$  /  $$$$$\    
-$$  __$$\   \$$  /   $$  __|   
-$$ |  $$ |   $$ |    $$ |      
-$$$$$$$  |   $$ |    $$$$$$$$\ 
-\_______/    \__|    \________|
-          ".colorize(:yellow)
-  end
 end
 
-# user = Calorierecorder.new("saman")
-# user.get_data("Tuna", 300, "Morning")
-# user.get_data("pizza", 400, "Midday")
-# user.get_data("chicken", 500, "Afternoon")
-# user.get_data("beef", 900, "Night")
-# user.display_data

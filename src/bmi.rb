@@ -1,10 +1,10 @@
 require 'colorize'
 class Bmi 
   attr_reader :weight, :height
-  # def initialize(weight, height)
-  #   @weight = weight
-  #   @height = height
-  # end
+  def initialize(weight, height)
+    @weight = weight
+    @height = height
+  end
 
 
   # this method will calculate and return user's BMI

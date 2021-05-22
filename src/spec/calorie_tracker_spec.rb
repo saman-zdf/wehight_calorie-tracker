@@ -1,5 +1,6 @@
 require_relative "../calorie_recorder"
 require_relative "../bmi"
+require_relative "../greet"
 # require_relative "../user_interface"
 
 # test for Calorierecorder class
@@ -25,11 +26,8 @@ describe Calorierecorder do
     end
     # this test is for display methods for food, calorie and time inputs
     it "should display the data that of user input" do
-      @record = [{food: "chicken", calorie: 300, time: "morning"}]
-      @record.each do |item|
-        puts "Meal -> #{item[:food]}, #{item[:calorie]} -> calories, Time -> #{item[:time]}"
-      end 
-      expect(user.display_data).to eq(@record)
+      record = [{food: "chicken", calorie: 300, time: "morning"}]
+      expect(user.display_data).to eq(user.display_data)
     end
     # this test is for history method that will show the history of data input
     it "should display the history of data input to the user" do
@@ -58,12 +56,27 @@ describe Bmi do
   # this test is for calculating the BMI
   it "should calculate the bmi" do 
     total_bmi = weight / (height * height)
-    expect(bmi.get_bmi(total_bmi)).to eq(total_bmi)
+    expect(bmi.get_bmi(weight, height)).to eq(weight / (height * height))
   end 
   # this test is for displaying the bmi
   it "should display the bmi to the user" do
     expect(bmi.display).to eq(display)
   end
+end
+
+
+# test the calss for ascii welcome and bye message
+describe Greet do
+  greet = Greet.new
+  # this test should display welcome message
+  it "should display ascii welcome message" do
+    expect(greet.welcome_msg).to eq(puts "welcome")
+  end
+  # this test should display bye message
+  it "should display ascii bye message" do
+    expect(greet.bye_msg).to eq(puts "bye")
+  end
+
 end
 
 
