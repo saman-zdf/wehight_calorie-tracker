@@ -66,7 +66,7 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 
 # R8: A diagram to describe the control flow of application
 
-![diagram](./docs/calorie_app_flowchart-Page-1.jpg)
+![diagram](./docs/flowchart.png)
 
 ---
 
@@ -79,6 +79,8 @@ I used trello to set a plan of what I want to do, set goals, create a user story
 2. DAY 2
    ![Project management](./docs/2_trello.png)
    ![Project management](./docs/3_trello.png)
+   ![Project management](./docs/trello-1.png)
+   ![Project management](./docs/trello-2.png)
 
    ***
 

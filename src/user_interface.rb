@@ -2,6 +2,7 @@ require 'colorize'
 require 'tty-prompt'
 require_relative "bmi.rb"
 require_relative "calorie_recorder.rb"
+require_relative "greet.rb"
 # require "test.yml"
 require 'terminal-table'
 prompt = TTY::Prompt.new
@@ -10,22 +11,16 @@ prompt = TTY::Prompt.new
 # in this loop the user have st of option, like sign up, create username and password, and login,
 # and prmopt the user to choose if user to update calorie intake or calulate bmi or see the history of calorie intake 
 loop do 
-  puts " _     _  _______  ___      _______  _______  __   __  _______   _______  _______   _______  __   __  ___  _______   _______  _______  _______ 
-| | _ | ||       ||   |    |       ||       ||  |_|  ||       | |       ||       | |       ||  | |  ||   ||       | |   _   ||       ||       |
-| || || ||    ___||   |    |       ||   _   ||       ||    ___| |_     _||   _   | |_     _||  |_|  ||   ||  _____| |  |_|  ||    _  ||    _  |
-|       ||   |___ |   |    |       ||  | |  ||       ||   |___    |   |  |  | |  |   |   |  |       ||   || |_____  |       ||   |_| ||   |_| |
-|       ||    ___||   |___ |      _||  |_|  ||       ||    ___|   |   |  |  |_|  |   |   |  |       ||   ||_____  | |       ||    ___||    ___|
-|   _   ||   |___ |       ||     |_ |       || ||_|| ||   |___    |   |  |       |   |   |  |   _   ||   | _____| | |   _   ||   |    |   |    
-|__| |__||_______||_______||_______||_______||_|   |_||_______|   |___|  |_______|   |___|  |__| |__||___||_______| |__| |__||___|    |___|    
-
-".colorize(:light_magenta)
+  greet = Greet.new
+  greet.welcome_msg
   # this code will ask if user wants to sign-up or exit
   user = Calorierecorder.new("saman")
   question = prompt.select("Would like to Sign-Up or Exit", %w(Sign-up Exit))
+
   if question == "Sign-up"
     system("clear")
   elsif question == "Exit"
-    user.display_bye
+    greet.bye_msg
     break
   end
 
@@ -119,7 +114,7 @@ loop do
       user.history
       option = true
     elsif display_option == "Exit" && option == true
-      user.display_bye
+      greet.bye_msg
       option = false
       exit
     end
@@ -132,7 +127,7 @@ loop do
         option_2 = false
         system("clear")
       else answer == "No"
-      user.display_bye     
+      greet.bye_msg     
         exit
       end
   end
