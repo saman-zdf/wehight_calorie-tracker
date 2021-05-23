@@ -1,6 +1,7 @@
 require 'colorize'
 require 'tty-prompt'
 require 'terminal-table'
+require 'json'
 # create a user account class for username and password
 class UserAccount < TTY::Prompt
   attr_reader :username
@@ -10,7 +11,7 @@ class UserAccount < TTY::Prompt
     prompt = @@prompt.select("Would you like to sign-up or exit", %W(Sign-Up Exit))
   end
 
-# create a method to prompt the username to create password, inside this method using while loop and asking user to create a username, and then prompt the user usi if user is happy with the chosen username and using conditional statements to collect he user answer.
+# # create a method to prompt the username to create password, inside this method using while loop and asking user to create a username, and then prompt the user usi if user is happy with the chosen username and using conditional statements to collect he user answer.
   def get_useranme
     status = true
     while status == true
@@ -28,7 +29,7 @@ class UserAccount < TTY::Prompt
       end
     end
   end
-# in this methos asking user to create a password and retype the password if the password doesn't match, the user will be asked to create a password again, again usin while loop, while the status variables is true a certain condition with conditional staements has to happen.
+# # in this methos asking user to create a password and retype the password if the password doesn't match, the user will be asked to create a password again, again usin while loop, while the status variables is true a certain condition with conditional staements has to happen.
   def get_password
     status = true
     while status == true
@@ -48,8 +49,14 @@ class UserAccount < TTY::Prompt
       end
     end
   end
+  def get_account 
+    @user = {}
+    @user[@username] = password
+    File.write('test.json', JSON.dump(@user))
+  end
 
-  # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
+
+#   # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
   def log_in
     puts "Congratulation you created an account, and your user name is #{@username}."
     keypress = @@prompt.keypress("Press any key to continue")
@@ -59,4 +66,7 @@ class UserAccount < TTY::Prompt
 end
 
 
-
+# user = UserAccount.new
+# user.get_useranme
+# user.get_password
+# user.get_account

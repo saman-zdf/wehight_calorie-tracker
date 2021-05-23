@@ -13,3 +13,7 @@ gem "colorize", "~> 0.8.1"
 gem "tty-prompt"
 
 gem 'terminal-table', '~> 3.0', '>= 3.0.1'
+
+gem 'json', '~> 2.5', '>= 2.5.1'
+
+gem 'httparty', '~> 0.18.1'

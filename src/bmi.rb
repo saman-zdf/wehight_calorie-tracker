@@ -11,8 +11,9 @@ class Bmi
   def get_bmi(weight, height)
     @weight = weight
     @height = height
+    num = 0
     begin
-    @weight / (@height * @height)
+    num = @weight / (@height * @height)
     rescue  
       puts "zero can't be divided"
     end
@@ -26,10 +27,10 @@ class Bmi
     get_bmi(weight, height)
     if get_bmi(weight, height).round(1) >= 18.4 && get_bmi(weight, height).round(1) <= 24.9
       puts "Good news, your BMI is #{get_bmi(weight, height).round(1)}, you have healthy weight.".colorize(:green)
-    elsif get_bmi(weight, height).round(1) >= 25
+    elsif get_bmi(weight, height).round(1) >= 25 && get_bmi(weight, height).round(1) <= 30 
       puts "Your BMI is a bit high #{get_bmi(weight, height).round(1)}, you are overwieght".colorize(:red)
       puts "If you reduce your calorie intake by 500 calories a day, you will be able to lose (450g) in a week".colorize(:red)
-    elsif get_bmi(weight, height).round(1) <= 18.3
+    elsif get_bmi(weight, height).round(1) <= 18.3 && get_bmi(weight, height).round(1) >= 10
       puts "Your BMI is a bit low #{get_bmi(weight, height).round(1)}, you are underwieght".colorize(:yellow)
       puts "If you increase your calorie intake by 500 calories a day, you will be able to gain (450g) in a week.".colorize(:yellow)
       system("clear")

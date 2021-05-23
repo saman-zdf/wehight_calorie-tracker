@@ -1,16 +1,45 @@
 # Welcome to my Calorie recorder App.
 
-### link below is for my github repository
+## link below is for my github repository:
 
 [Github repository](https://github.com/saman-zdf/weight_calorie-tracker)
 
-### Description
+## Description:
 
-1. In this app the user can track the daily calorie intakes, the user can check their BMI(Body Mass Index), and if they are under or overweight the app will show how much the user needs to lose or gain weight to have a Proper BMI.
+1. In this app the user can track the daily calorie intakes, the user can check their BMI(Body Mass Index), and if they are under or overweight the app will show how many calories user have to reduce or increase in order to lose or gain weight to get a normal BMI.
 
 ---
 
-# R5: Develop a statement of purpose and scope for your application. It must include:
+## Instruction for how to use this app and run in your machine:
+
+- If you don't have the Ruby program install on your machine please go to the link below and install the latest version of Ruby
+
+  - [Download and install Ruby](https://rubyinstaller.org/)
+
+- In order to use this app you should have Bundler gem install on your machine, just put the following command and it can be install:
+  gem install bundler
+
+Instructions for Installation and Use
+You will need ruby installed on your computer. Download ruby here.
+You will also need the Bundler gem installed. It comes with the main ruby installation, but if you do not have it on your machine, you can install it with the following command:
+gem install bundler
+
+- once you install bundler you can go to the src/ directory and input the following command in order to use the application:
+  bundle install
+- All the dependencies you will need are:
+  - DEPENDENCIES
+  - colorize (~> 0.8.1),
+  - json (~> 2.5, >= 2.5.1)
+  - rspec (~> 3.10)
+  - terminal-table (~> 3.0, >= 3.0.1)
+  - tty-prompt
+
+to run the app simply you just need to input the foollowing commandline:
+
+- ./run_app.sh
+- now you can use the app.
+
+---
 
 1. describe at a high level what the application will do:
 
