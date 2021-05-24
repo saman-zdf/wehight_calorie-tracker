@@ -8,7 +8,7 @@ class UserAccount < TTY::Prompt
   @@prompt = TTY::Prompt.new
   #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user answer
   def sign_up
-    prompt = @@prompt.select("Would you like to sign-up or exit", %W(Sign-Up Exit))
+    prompt = @@prompt.select("Would you like to sign-up or exit", %W(Sign-Up Log-In Exit))
   end
 
 # # create a method to prompt the username to create password, inside this method using while loop and asking user to create a username, and then prompt the user usi if user is happy with the chosen username and using conditional statements to collect he user answer.
@@ -49,24 +49,47 @@ class UserAccount < TTY::Prompt
       end
     end
   end
+
   def get_account 
     @user = {}
-    @user[@username] = password
-    File.write('test.json', JSON.dump(@user))
+    @user[@username] = @password
+    data = []
+    data << File.write('test_2.json', JSON.dump(@user))
+  end
+
+  def log_in
+    authentication = true
+    while authentication
+      @username = @@prompt.ask("Please enter your username:")
+      @password = @@prompt.mask("Please enter your password") do |q|
+        q.validate(/[a-z\ ]{5,15}/)
+      end
+      user = {}
+      user[@username] = @password
+      file = File.read('./test_2.json')
+      data_hash = JSON.parse(file)
+    if data_hash == user
+      authentication = false
+      system("clear")
+      puts "Welcome back #{@username}"
+      keypress = @@prompt.keypress("Press any key to continue")
+      system("clear")
+      break
+    else
+      puts "this account hasn't exist, please try again."
+      authentication = true
+    end
+  end
   end
 
 
 #   # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
-  def log_in
+  def confirm_account
     puts "Congratulation you created an account, and your user name is #{@username}."
     keypress = @@prompt.keypress("Press any key to continue")
     system("clear")
   end
 
+
 end
 
-
-# user = UserAccount.new
-# user.get_useranme
-# user.get_password
-# user.get_account
