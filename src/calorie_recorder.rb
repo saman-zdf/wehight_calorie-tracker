@@ -21,8 +21,8 @@ class Calorierecorder < Terminal::Table
   end 
 
 # create the get data method and pass three arguments, I store the variables as a value to the hash and then append it to my @record variables
-  def get_data(type, nmuber_of_cal, time_of_day)
-    total = {food: type, calorie: nmuber_of_cal, time: time_of_day}
+  def get_data(type, number_of_cal, time_of_day)
+    total = {food: type, calorie: number_of_cal, time: time_of_day}
     @record << total
   end
   # calorie recorder methods will gets the user input and store it to the get_data method
@@ -30,17 +30,16 @@ class Calorierecorder < Terminal::Table
     puts "Please Enter the type of the food"
     type = gets.chomp
     puts "Please enter the number of calories"
-    nmuber_of_cal = gets.chomp.to_i
+    number_of_cal = gets.chomp.to_i
     puts "Please enter the time of the day"
     time = gets.chomp
-    get_data(type, nmuber_of_cal, time)
-    system("clear")
-    display_data
+    get_data(type, number_of_cal, time)
   end
   # create a display data  method and iterate through my @record array, to display the value of each hash
   def display_data
     @table = Terminal::Table.new do |t|
       rows = []
+      t << :separator
       t.headings = ['Meal'.colorize(:yellow), 'Calories'.colorize(:yellow), 'Time of the day'.colorize(:yellow)]
       @record.each do |item|
         t << [item[:food], item[:calorie], item[:time] ] 
@@ -53,10 +52,14 @@ class Calorierecorder < Terminal::Table
   end
   # create a history method to show the history of records, used jason file to read the data of user inputs.
   def history
-    puts @table
+    # puts @table
     # using map to get the sum of the calories
       sum_calorie = @record.map { |cal| cal[:calorie] }.sum
       puts "You have had #{@record.length} meals, and #{sum_calorie} calories in total.".colorize(:green)
+      puts @table
+      # file = File.read('./test.json')
+      # data_hash = JSON.parse(file)
   end
+
 end
 
