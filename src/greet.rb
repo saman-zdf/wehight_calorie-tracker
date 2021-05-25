@@ -6,22 +6,15 @@ class Greet
       puts " 
 █░█░█ █▀▀ █░░ █▀▀ █▀█ █▀▄▀█ █▀▀   ▀█▀ █▀█   ▀█▀ █░█ █▀▀   █▀▀ ▄▀█ █░░ █▀█ █▀█ █ █▀▀   █▀█ █▀▀ █▀▀ █▀█ █▀█ █▀▄ █▀▀ █▀█
 ▀▄▀▄▀ ██▄ █▄▄ █▄▄ █▄█ █░▀░█ ██▄   ░█░ █▄█   ░█░ █▀█ ██▄   █▄▄ █▀█ █▄▄ █▄█ █▀▄ █ ██▄   █▀▄ ██▄ █▄▄ █▄█ █▀▄ █▄▀ ██▄ █▀▄
-".colorize(:yellow)
+".colorize(:cyan)
   end
 
   def bye_msg
        puts "Thank you for visiting us, please come back again".colorize(:cyan)
       puts ""
-        puts "$$$$$$$\ $$\     $$\ $$$$$$$$\ 
-$$  __$$\\$$\   $$  |$$  _____|
-$$ |  $$ |\$$\ $$  / $$ |      
-$$$$$$$\ | \$$$$  /  $$$$$\    
-$$  __$$\   \$$  /   $$  __|   
-$$ |  $$ |   $$ |    $$ |      
-$$$$$$$  |   $$ |    $$$$$$$$\ 
-\_______/    \__|    \________|
-          ".colorize(:yellow)
-         15.times do  print "\xF0\x9F\x8C\xB2" end
+        puts "
+█▄▄ █▄█ █▀▀
+█▄█ ░█░ ██▄".colorize(:cyan)
           puts ''
   end
 end

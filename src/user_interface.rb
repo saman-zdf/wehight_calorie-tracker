@@ -18,6 +18,7 @@ bmi = Bmi.new
 # create a new object from api class
 advice = Api.new
 
+
 # create a boolean variable and assign it to true
 status = true
 attempt = 1
@@ -50,7 +51,7 @@ while status == true && attempt < 2
   # using nested while loop with boolean variable that while is true certain condition will run, prompting the user to choose from the section(RecordCalorie BMI History Simpleadvice Exit)
   while continue == true
     puts "would you like to record your calorie intake, calculate your BMI or check the calorie history?".colorize(:cyan)
-    selection = prompt.select("You can choose one of the following options", %w(RecordCalorie BMI History Simpleadvice Exit))
+    selection = prompt.enum_select("You can choose one of the following options", %w(RecordCalorie BMI History Simpleadvice Exit))
     system("clear")
     if selection == "RecordCalorie"
       user.calorie_recorder
