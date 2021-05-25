@@ -1,12 +1,5 @@
 require 'colorize'
 class Bmi 
-  # attr_reader :weight, :height
-  # # def initialize(weight, height)
-  # #   @weight = weight
-  # #   @height = height
-  # # end
-
-
   # this method will calculate and return user's BMI
   def get_bmi(weight, height)
     @weight = weight
@@ -14,7 +7,7 @@ class Bmi
     begin 
     @weight / (@height * @height)
     rescue 
-      p "Zero Can't be divided try again"
+      # p "Zero Can't be divided try again"
     end
   end
   # # in this method will display the user's BMI, using conditional statments, if user's BMI in a normal range it shows He/She has a healthy weigh, if not in a normal range, it will alert the user that he either underweight or overweight, and gives some tip to how to lose or gaing weight.
@@ -25,7 +18,7 @@ class Bmi
         puts "Please enter your weight: ".colorize(:green)
         @weight = gets.chomp.to_f
         if @weight < 1 or @weight > 1000
-          puts "Invalid weight.please try again"
+          puts "Invalid input.please try again with a valid number"
         else
           weight_ok = true
         end
@@ -35,12 +28,13 @@ class Bmi
         puts "Please enter your height: ".colorize(:green)
         @height = gets.chomp.to_f
         if @height < 1 or @height > 3
-          puts "Invalid height. please try again"
+          puts "Invalid input. please try again with a valid number"
         else
           height_ok = true
         end
     end
     get_bmi(@weight, @height)  
+    system("clear")
   end
 
   def display
@@ -58,7 +52,3 @@ class Bmi
       end
     end
 end
-
-# bmi = Bmi.new
-# bmi.get_weight_height
-# bmi.display

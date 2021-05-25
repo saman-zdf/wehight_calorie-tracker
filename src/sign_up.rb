@@ -3,7 +3,7 @@ require 'tty-prompt'
 require 'terminal-table'
 require 'json'
 # create a user account class for username and password
-class UserAccount < TTY::Prompt
+class UserAccount 
   attr_reader :username
   @@prompt = TTY::Prompt.new
   #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user answer
@@ -82,14 +82,12 @@ class UserAccount < TTY::Prompt
   end
   end
 
-
 #   # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
   def confirm_account
     puts "Congratulation you created an account, and your user name is #{@username}."
     keypress = @@prompt.keypress("Press any key to continue")
     system("clear")
   end
-
 
 end
 
