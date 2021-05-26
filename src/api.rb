@@ -6,6 +6,7 @@ class Api
   base_uri "api.adviceslip.com/"
 # create a method call get advice
   def get_advice
+    system("clear")
     data = self.class.get("/advice").parsed_response
     50.times do print "*".colorize(:yellow) end
       puts ''
@@ -15,5 +16,3 @@ class Api
   end
 
 end
-
-

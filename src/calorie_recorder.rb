@@ -1,3 +1,5 @@
+require_relative "bmi.rb"
+require_relative "api.rb"
 require 'colorize'
 require 'tty-prompt'
 require 'terminal-table'
@@ -20,12 +22,33 @@ class Calorierecorder
     puts "In this app you will be able to record your daily food intake with calorie and time of the day.".colorize(:cyan)
     puts "Please just follow the instruction and you will be able to use this app easily.".colorize(:cyan)
   end 
+  def options 
+      selection = @@prompt.select("You can choose one of the following options", %w(RecordCalorie BMI History Simpleadvice Exit))
+    case selection
+    when "RecordCalorie"
+      calorie_recorder
+      display_data
+    when "BMI"
+      bmi = Bmi.new
+      system("clear")
+      bmi.get_weight_height
+      bmi.display
+    when "History"
+      history
+    when "Simpleadvice"
+      api = Api.new
+      api.get_advice
+    when "Exit"
+      exit
+    end
+  end
 
 # create the get data method and pass three arguments, I store the variables as a value to the hash and then append it to my @record variables
   def get_data(type, number_of_cal, time_of_day)
     total = {food: type, calorie: number_of_cal, time: time_of_day}
     @record << total
   end
+
   # calorie recorder methods will gets the user input and store it to the get_data method
   def calorie_recorder
     type = @@prompt.ask("Please Enter the type of the food") do |q|
@@ -58,6 +81,7 @@ class Calorierecorder
   # create a history method to show the history of records, used jason file to read the data of user inputs.
   def history
     # using map to get the sum of the calories
+    system('clear')
       sum_calorie = @record.map { |cal| cal[:calorie].to_i }.sum
       puts "You have had #{@record.length} meals, and #{sum_calorie} calories in total.".colorize(:green)
       file = File.read('./test.json')
