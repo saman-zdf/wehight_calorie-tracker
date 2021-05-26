@@ -6,7 +6,7 @@
 
 ## Description:
 
-1. In this app the user can track the daily calorie intakes, the user can check their BMI(Body Mass Index), and if they are under or overweight the app will show how many calories user have to reduce or increase in order to lose or gain weight to get in a normal BMI range. the other feature is if user want sto see the calorie intake history, history would be among the options. in this app there is also another feature that user can get simple advice.
+1. In this app the user can track the daily calorie intakes, the user can check their BMI(Body Mass Index), and if they are under or overweight the app will show how many calories user have to reduce or increase in order to lose or gain weight to get in a normal BMI range. the other feature is if user want sto see the calorie intake history, history would be among the options. in this app there is also another feature that user can get simple random advice.
 
 ---
 
@@ -29,8 +29,15 @@
 
 - no you just need go to the src/ directory
 - to run the app simply you just need to input the following commandline:
+
   - ./run_app.sh
-- now you can use the app.
+
+- I have implement some command line arguments if you wis to use them you have to run the following commands:
+  - ruby user_interface.rb red #=> it gives a red welcome msg, you can also put (cyan, yellow, green) insted of red
+- on next one user have two option, arguments are calorierecoder and advie
+  - ruby index.rb calorierecorder
+  - ruby index.rb advice
+    it will let you see the simple random advice or record some calories
 
 ---
 
@@ -95,7 +102,9 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 
 # R9: project mangement using trello
 
-I used trello to set a plan of what I want to do, set goals, create a user story and checked if my feature meet the expectation of user. made a to list, list of features, testing, process, complete, and sat time to do each feature
+I used trello to set a plan of what I want to do, set goals, create a user story and checked if my feature meet the expectation of user. made a to list, list of features, testing, process, complete, and sat time to do each feature, you can vist the link below to see the step I took in order to build this app:
+
+- [Porject management](https://trello.com/b/qfquUDvI/newcaloriebmitracker)
 
 1. DAY 1
    ![Project management](./docs/1_trello.png)

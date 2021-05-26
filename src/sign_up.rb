@@ -1,3 +1,4 @@
+require_relative "greet.rb"
 require 'colorize'
 require 'tty-prompt'
 require 'terminal-table'
@@ -6,9 +7,25 @@ require 'json'
 class UserAccount 
   attr_reader :username
   @@prompt = TTY::Prompt.new
-  #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user answer
+  #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user input and using case statement to give instruction regarding user input
   def sign_up
-    prompt = @@prompt.select("Would you like to sign-up or exit", %W(Sign-Up Log-In Exit))
+    opt_sign_up = @@prompt.select("Would you like to sign-up or exit", %W(sign-up log-in exit))
+    case opt_sign_up
+    when "sign-up"
+      system("clear")
+      get_useranme
+      get_password
+      get_account
+      confirm_account
+    when "log-in"
+      system("clear")
+      log_in
+    when "exit"
+      greet = Greet.new
+      system("clear")
+      greet.bye_msg
+      exit
+    end
   end
 
 # # create a method to prompt the username to create password, inside this method using while loop and asking user to create a username, and then prompt the user usi if user is happy with the chosen username and using conditional statements to collect he user answer.
@@ -49,7 +66,7 @@ class UserAccount
       end
     end
   end
-
+# writing the username and password to the json 
   def get_account 
     @user = {}
     @user[@username] = @password
@@ -57,6 +74,7 @@ class UserAccount
     data << File.write('test_2.json', JSON.dump(@user))
   end
 
+  # get the the user to input the existing username password and check from json file to see if its match
   def log_in
     authentication = true
     while authentication
@@ -71,7 +89,7 @@ class UserAccount
     if data_hash == user
       authentication = false
       system("clear")
-      puts "Welcome back #{@username}"
+      puts "Welcome back #{@username}".colorize(:cyan)
       keypress = @@prompt.keypress("Press any key to continue")
       system("clear")
       break

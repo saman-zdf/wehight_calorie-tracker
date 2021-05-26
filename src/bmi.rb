@@ -1,6 +1,7 @@
 require 'colorize'
 class Bmi 
   # this method will calculate and return user's BMI
+  attr_reader :weight, :height
   def get_bmi(weight, height)
     @weight = weight
     @height = height
@@ -12,7 +13,7 @@ class Bmi
   end
   # # in this method will display the user's BMI, using conditional statments, if user's BMI in a normal range it shows He/She has a healthy weigh, if not in a normal range, it will alert the user that he either underweight or overweight, and gives some tip to how to lose or gaing weight.
   def get_weight_height
-    get_bmi(@weight, @height)  
+    # get_bmi(@weight, @height)  
       weight_ok = false
       until weight_ok do
         puts "Please enter your weight: ".colorize(:green)
@@ -35,6 +36,10 @@ class Bmi
     end
     get_bmi(@weight, @height)  
     system("clear")
+  end
+
+  def bmi
+    return get_bmi(@weight, @height)  
   end
 
   def display
