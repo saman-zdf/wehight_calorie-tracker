@@ -1,5 +1,6 @@
 require_relative "bmi.rb"
 require_relative "api.rb"
+require_relative "sign_up.rb"
 require 'colorize'
 require 'tty-prompt'
 require 'terminal-table'
@@ -22,6 +23,7 @@ class Calorierecorder
     puts "In this app you will be able to record your daily food intake with calorie and time of the day.".colorize(:cyan)
     puts "Please just follow the instruction and you will be able to use this app easily.".colorize(:cyan)
   end 
+  # the option menu give set of option to the user for choosing what to do, I used tty-prompt selet and using case statement to match the user input and show the user choice
   def options 
       selection = @@prompt.select("You can choose one of the following options", %w(RecordCalorie BMI History Simpleadvice Exit))
     case selection
@@ -36,8 +38,8 @@ class Calorierecorder
     when "History"
       history
     when "Simpleadvice"
-      api = Api.new
-      api.get_advice
+      advice = Api.new
+      advice.get_advice
     when "Exit"
       exit
     end
@@ -69,9 +71,9 @@ class Calorierecorder
       rows = []
       t.headings = ['Meal'.colorize(:yellow), 'Calories'.colorize(:yellow), 'Time of the day'.colorize(:yellow)]
       @record.each do |item|
-        t << [item[:food], item[:calorie], item[:time] ] 
+        t << [item[:food], item[:calorie], item[:time]] 
         t << :separator
-        t.style = { :border_top => false, :border_bottom => false, :width => 80,:border_x => "=".colorize(:blue),:border_i => "*".colorize(:red)}
+        t.style = {:border_top => false, :border_bottom => false, :width => 80,:border_x => "=".colorize(:blue),:border_i => "*".colorize(:red)}
       end
     end
     puts @table
@@ -84,10 +86,21 @@ class Calorierecorder
     system('clear')
       sum_calorie = @record.map { |cal| cal[:calorie].to_i }.sum
       puts "You have had #{@record.length} meals, and #{sum_calorie} calories in total.".colorize(:green)
-      file = File.read('./test.json')
-      data_hash = JSON.parse(file)
-      puts data_hash
+      begin
+      file = File.read("./test.json")
+      data = JSON.parse(file)
+      puts data
+      rescue
+        puts "there is somthing wrong, please try again."
+      end
   end
-
 end
 
+# user = UserAccount.new
+# user.get_useranme
+# user.get_password
+# user.get_account
+# p user.user
+# cal = Calorierecorder.new("saman")
+# cal.calorie_recorder
+# cal.display_data
