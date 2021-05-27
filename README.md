@@ -2,7 +2,8 @@
 
 ## link below is for my github repository:
 
-[Github repository](https://github.com/saman-zdf/weight_calorie-tracker)
+- you can fork or clone this application from the github repository.
+- [Github repository](https://github.com/saman-zdf/weight_calorie-tracker)
 
 ## Description:
 
@@ -18,6 +19,8 @@
 
 - In order to use this app you should have Bundler gem install on your machine, just put the following command and it can be install:
   gem install bundler
+- to intall all the gems for this application change directory to the src/ and then simply use the command:
+  - bundle install
 - All the dependencies you will need are:
 
   - DEPENDENCIES
@@ -90,7 +93,7 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 
 2. The user can interact by choosing on of the following option(calorie, BMI, History). if user choose calorie it will ask the user to put the type of food, estimated calorie, time of the day, once the user input the these request it will be recorded in display the user the information. if user choose to calculate BMI(body mass index), it will ask the user to input weight and height and it will display the BMI of user, if user's BMI in the range of normal it will dispaly user have a healthy range, if BMI is not in a normal range it will let the user know He either is overweight or underweight, if user choose to see the history, it will show the history of calorie intake.
 
-3. for error handling, for example if user choose to check their BMI, it will ask the user top input weight and height , and if they are not valid number it will prompt the user to put a valid number. or if user to choose log-in with the existing account if user input the wrong information it will prompt the user the account hasn;t exist, please try again.
+3. for error handling, for example if user choose to check their BMI, it will ask the user top input weight and height , and if the inputs are not valid number it will prompt the user to put a valid number. or if user to choose log-in with the existing account if user input the wrong information it will prompt the user the account hasn't exist, please try again.
 
 ---
 
@@ -122,3 +125,5 @@ I used trello as a project management, to set a plan of what I want to do, set g
       ![Test records](docs/test-1.png)
       ![Test records](docs/test-2.png)
       ![Test records](docs/test-3.png)
+
+---

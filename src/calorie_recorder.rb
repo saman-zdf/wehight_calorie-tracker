@@ -1,6 +1,6 @@
+require_relative "sign_up.rb"
 require_relative "bmi.rb"
 require_relative "api.rb"
-require_relative "sign_up.rb"
 require 'colorize'
 require 'tty-prompt'
 require 'terminal-table'
@@ -10,11 +10,13 @@ class Calorierecorder
   # use attr_reader to be able to read the name 
   attr_reader :name, :record, :read
     @@prompt = TTY::Prompt.new
+    
   # in initializa methos which is a private method I passed 1 arguments for name and create two instance variables for name and record, and assign record varriable to an empty array
   def initialize(name)
     @name = name
     @record = []
     @read = []
+    # @user = user
   end
 
   # create welcome method to welcome the to this app user
@@ -63,6 +65,7 @@ class Calorierecorder
       q.validate(/[a-z\ ]{2,100}/)
     end
     get_data(type, number_of_cal, time)
+    # store_in_json
     system("clear")
   end
   # create a display data  method and iterate through my @record array, to display the value of each hash
@@ -77,30 +80,25 @@ class Calorierecorder
       end
     end
     puts @table
-    @read << @table
+    @read <<  @table
     File.write('test.json', JSON.dump(@read))
   end
+  # store the accuount and food data into json file
+  # def store_in_json
+  # end
   # create a history method to show the history of records, used jason file to read the data of user inputs.
   def history
     # using map to get the sum of the calories
     system('clear')
       sum_calorie = @record.map { |cal| cal[:calorie].to_i }.sum
       puts "You have had #{@record.length} meals, and #{sum_calorie} calories in total.".colorize(:green)
+      # if data hash is empty it will show an error, just used manual error handling to show the user the log is empty
       begin
-      file = File.read("./test.json")
-      data = JSON.parse(file)
-      puts data
+        file = File.read("./test.json")
+        data_hash = JSON.parse(file)
+        puts data_hash
       rescue
-        puts "there is somthing wrong, please try again."
+        puts "Your log is empty, please record your food and calorie intake."
       end
   end
 end
-
-# user = UserAccount.new
-# user.get_useranme
-# user.get_password
-# user.get_account
-# p user.user
-# cal = Calorierecorder.new("saman")
-# cal.calorie_recorder
-# cal.display_data

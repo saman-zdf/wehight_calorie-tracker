@@ -38,26 +38,26 @@ describe Calorierecorder do
 end
 
 
-# tests for BMI class
-# describe Bmi do 
-#   weight = 80
-#   height = 1.82
-#   bmi = Bmi.new(weight, height)
-#   # this test should have a redable weight 
-#   it "should have a readable weight" do
-#   expect(bmi.weight).to eq(80)
-#   end
-#   # this test should have a readable height
-#   it "should have a readable height" do
+tests for BMI class
+describe Bmi do 
+  weight = 80
+  height = 1.82
+  bmi = Bmi.new(weight, height)
+  # this test should have a redable weight 
+  it "should have a readable weight" do
+  expect(bmi.weight).to eq(80)
+  end
+  # this test should have a readable height
+  it "should have a readable height" do
 
-#   expect(bmi.height).to eq(1.82)
-#   end
-#   # this test is for calculating the BMI
-#   it "should calculate the bmi" do 
-#     total_bmi = weight / (height * height)
-#     expect(bmi.get_bmi(weight, height)).to eq(weight / (height * height))
-#   end 
-# end
+  expect(bmi.height).to eq(1.82)
+  end
+  # this test is for calculating the BMI
+  it "should calculate the bmi" do 
+    total_bmi = weight / (height * height)
+    expect(bmi.get_bmi(weight, height)).to eq(weight / (height * height))
+  end 
+end
 
 
 
