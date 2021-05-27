@@ -1,3 +1,4 @@
+# require_relative "calorie_recorder.rb"
 require_relative "greet.rb"
 require 'colorize'
 require 'tty-prompt'
@@ -9,7 +10,7 @@ class UserAccount
   @@prompt = TTY::Prompt.new
   #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user input and using case statement to give instruction regarding user input
   def sign_up
-    opt_sign_up = @@prompt.select("Would you like to sign-up or exit", %W(sign-up log-in exit))
+    opt_sign_up = @@prompt.select("Would you like to sign-up, log-in or exit", %W(sign-up log-in exit))
     case opt_sign_up
     when "sign-up"
       system("clear")
@@ -73,19 +74,14 @@ class UserAccount
     data = []
     data << File.write('test_2.json', JSON.dump(@user))
   end
-  # this method will return the hash of username and password
-  # def username 
-  #   return @username
-  # end 
-  # def password
-  #   return @password
 
-  # end
-
-
-  def user
-      return @user 
+  #   # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
+  def confirm_account
+    puts "Congratulation you created an account, and your user name is #{@username}."
+    keypress = @@prompt.keypress("Press any key to continue")
+    system("clear")
   end
+  
   # get the the user to input the existing username password and check from json file to see if its match
   def log_in
     authentication = true
@@ -111,18 +107,5 @@ class UserAccount
     end
   end
   end
-
-#   # displaying user the username successfully has been created, and then using keypress from tty-prompt to pree any key yo continue,
-  def confirm_account
-    puts "Congratulation you created an account, and your user name is #{@username}."
-    keypress = @@prompt.keypress("Press any key to continue")
-    system("clear")
-  end
-
 end
 
-# user = UserAccount.new
-# user.get_useranme
-# user.get_password
-# user.get_account
-# p user.user
