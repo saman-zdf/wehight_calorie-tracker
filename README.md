@@ -32,9 +32,9 @@
 
   - ./run_app.sh
 
-- I have implement some command line arguments if you wis to use them you have to run the following commands:
+- I have implement some command line arguments if you wish to use them you have to run the following commands:
   - ruby user_interface.rb red #=> it gives a red welcome msg, you can also put (cyan, yellow, green) insted of red
-- on next one user have two option, arguments are calorierecoder and advie
+- for the next command line argument, user have two option, arguments are (calorierecoder) and (advice)
   - ruby index.rb calorierecorder
   - ruby index.rb advice
     it will let you see the simple random advice or record some calories
@@ -61,7 +61,7 @@
      3. the user will have an option to see his/her previos records.
      ***
 
-# R6: Develop a list of features that will be included in the application. It must include:
+## R6: Develop a list of features that will be included in the application. It must include:
 
 - at least THREE features
 - describe each feature
@@ -102,7 +102,7 @@ Note: Ensure that your features above allow you to demonstrate your understandin
 
 # R9: project mangement using trello
 
-I used trello to set a plan of what I want to do, set goals, create a user story and checked if my feature meet the expectation of user. made a to list, list of features, testing, process, complete, and sat time to do each feature, you can vist the link below to see the step I took in order to build this app:
+I used trello as a project management, to set a plan of what I want to do, set goals, create a user story and checked if my feature meet the expectation of user. made a to list, list of features, testing, process, complete, and sat time to do each feature, you can vist the link below to see the steps I took in order to build this app:
 
 - [Porject management](https://trello.com/b/qfquUDvI/newcaloriebmitracker)
 

@@ -5,7 +5,7 @@ require 'terminal-table'
 require 'json'
 # create a user account class for username and password
 class UserAccount 
-  attr_reader :username
+  attr_reader :username, :password, :user
   @@prompt = TTY::Prompt.new
   #create a method that will prompt the user at the beginig if he wants to signup or exit, useing tty-promt select to collect the user input and using case statement to give instruction regarding user input
   def sign_up
@@ -73,7 +73,19 @@ class UserAccount
     data = []
     data << File.write('test_2.json', JSON.dump(@user))
   end
+  # this method will return the hash of username and password
+  # def username 
+  #   return @username
+  # end 
+  # def password
+  #   return @password
 
+  # end
+
+
+  def user
+      return @user 
+  end
   # get the the user to input the existing username password and check from json file to see if its match
   def log_in
     authentication = true
@@ -109,3 +121,8 @@ class UserAccount
 
 end
 
+# user = UserAccount.new
+# user.get_useranme
+# user.get_password
+# user.get_account
+# p user.user
